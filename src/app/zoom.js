@@ -28,6 +28,13 @@ const getAsyncSignature = async (role) => {
 export const initMeet = async (client, element, role, userName='BSA Campaign Group') => {
   try{
     const signature = await getAsyncSignature(role)
+
+    const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    console.log(windowWidth, windowHeight)
+    const w = (windowWidth > 1100) ? 1000 : windowWidth - 50
+    const h = (windowHeight > 100) ? 500 : windowHeight - 200
   
     client.init({
       debug: true,
@@ -38,8 +45,8 @@ export const initMeet = async (client, element, role, userName='BSA Campaign Gro
           isResizable: true,
           viewSizes: {
             default: {
-              width: 1000,
-              height: 500
+              width: w,
+              height: h
             },
             ribbon: {
               width: 250,

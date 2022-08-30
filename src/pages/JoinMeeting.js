@@ -9,7 +9,7 @@ function JoinMeeting() {
   const { state } = useLocation()
   const [loading, toggleLoading] = useState(true)
   const [message, setMessage] = useState("")
-  const userName = state.userName ?? "BSA Supporter"
+  const userName = state?.userName ?? "BSA Supporter"
 
   useEffect(() => {
     joinMeeting()
